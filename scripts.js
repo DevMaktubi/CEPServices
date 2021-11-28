@@ -72,6 +72,11 @@ $(document).ready(() => {
         $.ajax({
             url: `https://linkcorreios.com.br/OP295213349BR`,
             type: "GET",
+            crossDomain: true,
+            dataType: "html",
+            headers: {
+                "Access-Control-Allow-Origin":"*"
+            },
             success: (data) => {
                 const json = JSON.parse(data)
                 console.log(json);
