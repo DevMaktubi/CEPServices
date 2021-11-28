@@ -1,0 +1,8 @@
+{
+  "name": "Correios",
+  "version": "1.0.0",
+  "description": "Um webservice utilizando a API dos correios",
+  "main": "index.js",
+  "author": "devMaktubi",
+  "license": "MIT"
+}
