@@ -39,7 +39,7 @@
         </div>
         <!-- CONTENT -->
         <div class="d-flex flex-column flex-md-row col-8 justify-content-md-around mx-auto mt-md-5 mt-2">
-            <p class="d-flex flex-row col-12 col-md-9 p-md-2 p-1 justify-content-center justify-content-md-start align-items-center mb-2">Verifique agora mesmo o status de localização da sua encomenda.</p>
+            <p class="d-flex flex-row col-12 col-md-9 p-md-2 p-1 justify-content-center justify-content-md-start align-items-center mb-2">Verifique agora mesmo o histórico de status de localização da sua encomenda.</p>
             <div class="d-flex flex-row col-12 col-md-3 p-md-2 p-1 justify-content-around justify-content-md-start align-items-center">
                 <div class="form-group m-0 d-flex flex-row">
                     <input type="text"
@@ -49,38 +49,33 @@
             </div>
         </div>
         <!-- RESULT -->
-        <div id="result-section" class="container m-0 p-1 d-none flex-column col-8 justify-content-md-around mx-auto mt-md-5 mt-2">
-            <div class="row my-2 mx-0 p-0 ">
-                <div class="col-md col-12 text-center d-flex flex-column flex-md-row align-items-center mb-2 mb-md-0 justify-content-md-center justify-content-start">
-                    <h5 class="mb-0 mr-md-2 mr-0">Logradouro:</h5>
-                    <h5 class="mb-0" id="logradouro">Praça da Sé</h5>
-                </div>
-                <div class="col-md col-12 text-center d-flex flex-column flex-md-row align-items-center justify-content-md-center justify-content-start">
-                    <h5 class="mb-0 mr-md-2 mr-0">Complemento:</h5>
-                    <h5 class="mb-0" id="complemento">Lado ímpar</h5>
-                </div>
-            </div>
-            <div class="row my-2 mx-0 p-0">
-                <div class="col-md col-12 text-center d-flex flex-column flex-md-row align-items-center mb-2 mb-md-0 justify-content-md-center justify-content-start">
-                    <h5 class="mb-0 mr-md-2 mr-0">Bairro:</h5>
-                    <h5 class="mb-0" id="bairro">Sé</h5>
-                </div>
-                <div class="col-md col-12 text-center d-flex flex-column flex-md-row align-items-center justify-content-md-center justify-content-start">
-                    <h5 class="mb-0 mr-md-2 mr-0">Cidade:</h5>
-                    <h5 class="mb-0" id="localidade">São Paulo</h5>
-                </div>
-            </div>
-            <div class="row my-2 mx-0 p-0">
-                <div class="col-md col-12 text-center d-flex flex-column flex-md-row align-items-center mb-2 mb-md-0 justify-content-md-center justify-content-start">
-                    <h5 class="mb-0 mr-md-2 mr-0">UF:</h5>
-                    <h5 class="mb-0" id="uf">SP</h5>
-                </div>
-                <div class="col-md col-12 text-center d-flex flex-column flex-md-row align-items-center justify-content-md-center justify-content-start">
-                    <h5 class="mb-0 mr-md-2 mr-0">DDD:</h5>
-                    <h5 class="mb-0" id="ddd">11</h5>
-                </div>
-            </div>
-        </div>
+        <table id="result-table" class="d-none table col-md-10 col-12 mx-auto mt-md-5 mt-1" >
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Descrição</th>
+                    <th>Data</th>
+                    <th>UF</th>
+                    <th>Cidade</th>
+                </tr>
+            </thead>
+            <tbody id="status-table">
+                <tr >
+                    <td scope="row">Teste</td>
+                    <td>Teste</td>
+                    <td>Teste</td>
+                    <td>Teste</td>
+                    <td>Teste</td>
+                </tr>
+                <tr>
+                    <td scope="row"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS --></div>

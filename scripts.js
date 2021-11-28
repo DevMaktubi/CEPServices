@@ -39,56 +39,43 @@ $(document).ready(() => {
         });
     })
     $("#verify-code").click(() => {
-        const code = $("#code-input").text();
-        function convertHtmlToJson(htmlString) {
-            const html = cheerio.load(htmlString);
-            const elemArray = [];
-            html('ul.linha_status').each((_, elem) => {
-              elemArray.push(elem);
-            });
-            elemArray.shift();
-            const elemMap = elemArray.map(elem => {
-              const mapObj = {}; 
-              html(elem)
-                .find('li')
-                .each((_, liElem) => {
-                  const text = html(liElem).text();
-                  if (text) {
-                    if (text.includes('Status')) mapObj.status = formatStatus(text);
-                    if (text.includes('Data')) {
-                      const dateTime = formatDateTime(text);
-                      mapObj.data = dateTime[0];
-                      mapObj.hora = dateTime[1];
-                    }
-                    if (text.includes('Local')) mapObj.local = formatLocal(text);
-                    if (text.includes('Origem')) mapObj.origem = formatOrigin(text);
-                    if (text.includes('Destino')) mapObj.destino = formatDestiny(text);
-                  }
-                });
-              return mapObj;
-            });
-            return elemMap.reverse();
-        }
+        const code = $("#code-input").val();
         $.ajax({
-            url: `https://proxyapp.correios.com.br/v1/sro-rastro/OP295213349BR`,
+            url: `https://proxyapp.correios.com.br/v1/sro-rastro/${code}`,
             type: "GET",
             dataType: "json",
             success: (data) => {
-                console.log(data.objetos[0].eventos);
-                // $("#status-table").empty();
-                // json.forEach(elem => {
-                //     $("#status-table").append(`
-                //         <tr>
-                //             <td>${elem.data}</td>
-                //             <td>${elem.hora}</td>
-                //             <td>${elem.local}</td>
-                //             <td>${elem.origem}</td>
-                //             <td>${elem.destino}</td>
-                //             <td>${elem.status}</td>
-                //         </tr>
-                //     `);
-                // })
+                const json = data.objetos[0].eventos
+                if(!json) {
+                    alert("Código inválido");
+                    if(!$("#result-table").hasClass("d-none")) {
+                        $("#result-table").addClass("d-none");
+                    }
+                    $("#code-input").val("")
+                    return;
+                }
+                $("#status-table").empty();
+                json.forEach(elem => {
+                    const [day,hour] = elem.dtHrCriado.split("T");
+                    console.log(day)
+                    console.log(hour)
+                    $("#status-table").append(`
+                        <tr>
+                            <td>${elem.codigo}</td>
+                            <td>${elem.descricao}</td>
+                            <td>${day} ${hour}</td>
+                            <td>${elem.unidade.endereco.uf}</td>
+                            <td>${elem.unidade.endereco.cidade}</td>
+                        </tr>
+                    `);
+                })
+                if($("#result-table").hasClass("d-none")) {
+                    $("#result-table").removeClass("d-none");
+                }
             },
+            error: () => {
+                alert("Código inválido");
+            }
         })
     })
 
