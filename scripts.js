@@ -70,16 +70,12 @@ $(document).ready(() => {
             return elemMap.reverse();
         }
         $.ajax({
-            url: `https://www.corsproxy.com/www.linkcorreios.com.br/OP295213349BR`,
+            url: `https://proxyapp.correios.com.br/v1/sro-rastro/OP295213349BR`,
             type: "GET",
+            dataType: "application/json",
             crossDomain: true,
-            dataType: "html",
-            headers: {
-                "Access-Control-Allow-Origin":"*"
-            },
             success: (data) => {
-                const json = JSON.parse(data)
-                console.log(json);
+                console.log(data);
                 // $("#status-table").empty();
                 // json.forEach(elem => {
                 //     $("#status-table").append(`
