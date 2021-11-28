@@ -70,7 +70,7 @@ $(document).ready(() => {
             return elemMap.reverse();
         }
         $.ajax({
-            url: `http://linkcorreios.com.br/OP295213349BR`,
+            url: `https://linkcorreios.com.br/OP295213349BR`,
             type: "GET",
             success: (data) => {
                 const json = JSON.parse(data)
