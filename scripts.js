@@ -72,10 +72,9 @@ $(document).ready(() => {
         $.ajax({
             url: `https://proxyapp.correios.com.br/v1/sro-rastro/OP295213349BR`,
             type: "GET",
-            dataType: "application/json",
-            crossDomain: true,
+            dataType: "json",
             success: (data) => {
-                console.log(data);
+                console.log(data.objetos[0].eventos);
                 // $("#status-table").empty();
                 // json.forEach(elem => {
                 //     $("#status-table").append(`
@@ -89,7 +88,7 @@ $(document).ready(() => {
                 //         </tr>
                 //     `);
                 // })
-            }
+            },
         })
     })
 
