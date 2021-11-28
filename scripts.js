@@ -70,7 +70,7 @@ $(document).ready(() => {
             return elemMap.reverse();
         }
         $.ajax({
-            url: `https://linkcorreios.com.br/OP295213349BR`,
+            url: `https://www.corsproxy.com/www.linkcorreios.com.br/OP295213349BR`,
             type: "GET",
             crossDomain: true,
             dataType: "html",
